@@ -10,7 +10,7 @@ type GetUsersReponse = {
     data: User[];
 }
 
-const SSG: NextPage<GetUsersReponse> = ({ data }) => {
+const ISR: NextPage<GetUsersReponse> = ({ data }) => {
     return (
         <>
             {(data as any).map((e: User) => (
@@ -20,7 +20,7 @@ const SSG: NextPage<GetUsersReponse> = ({ data }) => {
     )
 }
 
-export default SSG;
+export default ISR;
 
 export const getStaticProps: GetStaticProps = async () => {
     const res = await axios.get<GetUsersReponse>('https://631f692422cefb1edc4b6535.mockapi.io/api/users')
@@ -30,5 +30,6 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             data,
         },
+        revalidate: 20,
     };
 }

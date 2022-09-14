@@ -8,6 +8,7 @@ export default async function handler(
   console.log('[Next.js] Revalidating');
 
   // Check for secret to confirm this is a valid request
+  // Secret should be store in environment variables
   if (req.query.secret !== "erni") {
     return res.status(401).json({ message: 'Invalid token' })
   }

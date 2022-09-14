@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.css'
 
 type User = {
     id: number,
@@ -25,9 +26,11 @@ const CSR: NextPage = () => {
     
     return (
         <>
+        <div className={styles.container}>
             {(state as any).map((e: User) => (
                 <h2 key={e.id}>{e.name}</h2>
             ))}
+            </div>
         </>
     )
 }

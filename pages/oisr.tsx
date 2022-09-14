@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 import axios from 'axios';
+import styles from '../styles/Home.module.css'
 
 type User = {
     id: number,
@@ -17,10 +18,12 @@ const OISR: NextPage<GetUsersReponse> = ({ data }) => {
 
     return (
         <>
-            {(data as any).map((e: User) => (
-                <h2 key={e.id}>{e.name}</h2>
-            ))}
-            <button onClick={() => revalidate()}>Revalidate</button>
+            <div className={styles.container}>
+                <button onClick={() => revalidate()}>Revalidate</button>
+                {(data as any).map((e: User) => (
+                    <h2 key={e.id}>{e.name}</h2>
+                ))}
+            </div>
         </>
     )
 }

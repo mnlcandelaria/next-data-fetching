@@ -12,7 +12,7 @@ type GetUsersReponse = {
 
 const OISR: NextPage<GetUsersReponse> = ({ data }) => {
     const revalidate = () => {
-        fetch('/api/revalidate');
+        fetch('/api/revalidate?secret=erni');
     }
 
     return (

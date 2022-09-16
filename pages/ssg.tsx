@@ -14,7 +14,7 @@ const SSG: NextPage<GetUsersReponse> = ({ data }) => {
     return (
         <>
             {(data as any).map((e: User) => (
-                <h2 key={e.id}>{e.name}</h2>
+                <h3 key={e.id}>{e.name}</h3>
             ))}
         </>
     )
